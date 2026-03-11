@@ -95,17 +95,17 @@ var a = 'a';
 let b = 'b';
 const c = 'c';
 
-function f1(){
+function f1() {
     console.log('f1');
 }
 
-const f2 = function(){
+var f2 = function () {
     console.log('f2');
 }
-const f3 = function(){
+let f3 = function () {
     console.log('f3');
 }
-const f4 = function(){
+const f4 = function () {
     console.log('f4');
 }
 
