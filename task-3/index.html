@@ -1,22 +1,32 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <header><h1>Counter and Form Validation</h1></header>
-    <main>
-      <section>
-        <h2>Counter</h2>
-    </section>
-    <hr>
-      <section>
-        <h2>User Form</h2>
-    </section>
-    </main>
-    <script></script>
-    <script></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <header><h1>Counter and Form Validation</h1></header>
+        <main>
+            <section>
+                <h2>Counter</h2>
+                <p id="counter">Current Count: 0</p>
+                <div>
+                    <button id="increment">Increemnt</button>
+                    <button id="reset">Reset</button>
+                </div>
+            </section>
+            <hr />
+            <section>
+                <h2>User Form</h2>
+                <form>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required />
+                </form>
+                <p id="submit-text"></p>
+                <button id="submit-button">Submit</button>
+            </section>
+        </main>
+        <script type="module" src="./main.js"></script>
+    </body>
 </html>
