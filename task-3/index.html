@@ -19,12 +19,13 @@
             <hr />
             <section>
                 <h2>User Form</h2>
-                <form>
+                <form id="form">
                     <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required />
+                    <input type="text" id="name" name="name" required/>
+                    <p id="submit-fail"></p>
+                <button type="submit" id="submit-button">Submit</button>
+                <p id="submit-success"></p>
                 </form>
-                <p id="submit-text"></p>
-                <button id="submit-button">Submit</button>
             </section>
         </main>
         <script type="module" src="./main.js"></script>
