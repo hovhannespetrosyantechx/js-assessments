@@ -22,49 +22,63 @@
                         <h2>Full Name <span class="required-sign">*</span></h2>
                         <div class="input-block">
                             <div class="input-item">
-                                <input type="text" name="firstName" />
+                                <input
+                                    type="text"
+                                    id="firstName"
+                                    name="firstName"
+                                    required />
                                 <label class="input-label" for="firstName">
                                     First Name
                                 </label>
                             </div>
                             <div class="input-item">
-                                <input type="text" name="lastName" />
+                                <input
+                                    type="text"
+                                    id="lastName"
+                                    name="lastName"
+                                    required />
                                 <label class="input-label" for="lastName">
                                     Last Name
                                 </label>
                             </div>
                         </div>
                     </section>
-                    <section class="contact-info-sectoin">
+                    <section class="address-section">
                         <h2>Address <span class="required-sign">*</span></h2>
                         <div class="input-item">
-                            <input type="text" name="Address-1" />
+                            <input
+                                type="text"
+                                id="Address-1"
+                                name="Address-1" required/>
                             <label class="input-label" for="Address-1">
                                 Street Address
                             </label>
                         </div>
                         <div class="input-item">
-                            <input type="text" name="Address-2" />
+                            <input
+                                type="text"
+                                id="Address-2"
+                                name="Address-2" />
                             <label class="input-label" for="Address-2">
                                 Street Address Line 2
                             </label>
                         </div>
                         <div class="input-block">
                             <div class="input-item">
-                                <input type="text" name="City" />
+                                <input type="text" id="City" name="City" required/>
                                 <label class="input-label" for="City">
                                     City
                                 </label>
                             </div>
                             <div class="input-item">
-                                <input type="text" name="State" />
+                                <input type="text" id="State" name="State" required/>
                                 <label class="input-label" for="State">
                                     State / Province
                                 </label>
                             </div>
                         </div>
                         <div class="input-item">
-                            <input type="text" name="Postal" />
+                            <input type="text" id="Postal" name="Postal" required/>
                             <label class="input-label" for="Postal">
                                 Postal / Zip Code
                             </label>
@@ -78,17 +92,19 @@
                             <input
                                 type="text"
                                 name="Phone-Number"
-                                placeholder="(000) 000-0000" />
+                                placeholder="(000) 000-0000" 
+                                required/>
                         </div>
                     </section>
                     <section class="email-section">
                         <h2>E-mail</h2>
                         <div class="input-item half">
                             <input
-                                type="text"
-                                name="Phone-Number"
+                                type="email"
+                                name="Email"
+                                id="email"
                                 placeholder="ex: email@yahoo.com" />
-                            <label class="input-label" for="firstName">
+                            <label class="input-label" for="email">
                                 example@example.com
                             </label>
                         </div>
@@ -100,7 +116,7 @@
                             <span class="required-sign">*</span>
                         </h2>
                         <div class="input-item half">
-                            <select name="select">
+                            <select name="select" required>
                                 <option value="#" disabled selected hidden>
                                     Please Select
                                 </option>
