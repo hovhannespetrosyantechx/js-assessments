@@ -25,8 +25,7 @@
                                 <input
                                     type="text"
                                     id="firstName"
-                                    name="firstName"
-                                    required />
+                                    name="firstName" />
                                 <label class="input-label" for="firstName">
                                     First Name
                                 </label>
@@ -35,54 +34,58 @@
                                 <input
                                     type="text"
                                     id="lastName"
-                                    name="lastName"
-                                    required />
+                                    name="lastName" />
                                 <label class="input-label" for="lastName">
                                     Last Name
                                 </label>
                             </div>
                         </div>
+                        <span class="error"></span>
                     </section>
                     <section class="address-section">
                         <h2>Address <span class="required-sign">*</span></h2>
                         <div class="input-item">
                             <input
                                 type="text"
-                                id="Address-1"
-                                name="Address-1" required/>
-                            <label class="input-label" for="Address-1">
+                                id="address-1"
+                                name="address-1" />
+                            <label class="input-label" for="address-1">
                                 Street Address
                             </label>
                         </div>
                         <div class="input-item">
                             <input
                                 type="text"
-                                id="Address-2"
-                                name="Address-2" />
-                            <label class="input-label" for="Address-2">
+                                id="address-2"
+                                name="address-2" />
+                            <label class="input-label" for="address-2">
                                 Street Address Line 2
                             </label>
                         </div>
                         <div class="input-block">
                             <div class="input-item">
-                                <input type="text" id="City" name="City" required/>
-                                <label class="input-label" for="City">
+                                <input type="text" id="city" name="city" />
+                                <label class="input-label" for="city">
                                     City
                                 </label>
                             </div>
                             <div class="input-item">
-                                <input type="text" id="State" name="State" required/>
-                                <label class="input-label" for="State">
+                                <input type="text" id="state" name="state" />
+                                <label class="input-label" for="state">
                                     State / Province
                                 </label>
                             </div>
                         </div>
                         <div class="input-item">
-                            <input type="text" id="Postal" name="Postal" required/>
-                            <label class="input-label" for="Postal">
+                            <input
+                                type="text"
+                                id="postal-code"
+                                name="postal-code" />
+                            <label class="input-label" for="postal-code">
                                 Postal / Zip Code
                             </label>
                         </div>
+                        <span class="error"></span>
                     </section>
                     <section class="phone-section">
                         <h2>
@@ -91,10 +94,11 @@
                         <div class="input-item half">
                             <input
                                 type="text"
-                                name="Phone-Number"
-                                placeholder="(000) 000-0000" 
-                                required/>
+                                name="phone-number"
+                                placeholder="(000) 000-0000"
+                                id="phone-Number" />
                         </div>
+                        <span class="error"></span>
                     </section>
                     <section class="email-section">
                         <h2>E-mail</h2>
@@ -116,7 +120,7 @@
                             <span class="required-sign">*</span>
                         </h2>
                         <div class="input-item half">
-                            <select name="select" required>
+                            <select id="how" name="select">
                                 <option value="#" disabled selected hidden>
                                     Please Select
                                 </option>
@@ -126,6 +130,16 @@
                                 <option value="Magazine">Magazine</option>
                                 <option value="Other">Other</option>
                             </select>
+                        </div>
+                        <div id="other-section">
+                            <div class="input-item half">
+                                <input
+                                    type="text"
+                                    id="other-input"
+                                    name="other" />
+                                <label for="other-input">Please specify</label>
+                                <span class="error"></span>
+                            </div>
                         </div>
                     </section>
                     <section class="feedback-section">
@@ -149,7 +163,8 @@
                                 <input
                                     type="checkbox"
                                     name="recommend"
-                                    value="yes" />
+                                    value="yes"
+                                    id="yes" />
                                 <span>Yes</span>
                             </label>
 
@@ -157,7 +172,8 @@
                                 <input
                                     type="checkbox"
                                     name="recommend"
-                                    value="maybe" />
+                                    value="maybe"
+                                    id="maybe" />
                                 Maybe
                             </label>
 
@@ -165,7 +181,8 @@
                                 <input
                                     type="checkbox"
                                     name="recommend"
-                                    value="no" />
+                                    value="no"
+                                    id="no" />
                                 No
                             </label>
                         </div>
@@ -180,23 +197,45 @@
                                 <tr>
                                     <th id="empty"></th>
                                     <th id="left-top-1">Full Name</th>
-                                    <th>Adress</th>
+                                    <th>Address</th>
                                     <th id="right-top">Contact Number</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <th id="left-top-2">1</th>
-                                    <td><input type="text" /></td>
-                                    <td><input type="text" /></td>
-                                    <td><input type="text" /></td>
+                                    <td>
+                                        <input
+                                            id="reference-1-name"
+                                            type="text" />
+                                    </td>
+                                    <td>
+                                        <input
+                                            id="reference-1-address"
+                                            type="text" />
+                                    </td>
+                                    <td>
+                                        <input
+                                            id="reference-1-contact"
+                                            type="text" />
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th id="left-bottom">2</th>
-                                    <td><input type="text" /></td>
-                                    <td><input type="text" /></td>
+                                    <td>
+                                        <input
+                                            id="reference-2-name"
+                                            type="text" />
+                                    </td>
+                                    <td>
+                                        <input
+                                            id="reference-2-address"
+                                            type="text" />
+                                    </td>
                                     <td id="right-bottom">
-                                        <input type="text" />
+                                        <input
+                                            id="reference-2-contact"
+                                            type="text" />
                                     </td>
                                 </tr>
                             </tbody>
@@ -207,7 +246,11 @@
                     <button type="submit">Submit</button>
                 </section>
             </form>
+            
         </main>
+        <div id="success-screen">
+                <img src="success.png" alt="Success" />
+            </div>
         <script src="form.js"></script>
     </body>
 </html>
