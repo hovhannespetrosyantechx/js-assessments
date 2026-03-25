@@ -5,10 +5,13 @@ const emailBtn = document.getElementById('email');
 const noteForm = document.getElementById('note-form')
 const note = document.getElementById('temp-note');
 
+const cookieBanner = document.getElementById('cookie-banner');
+const cookiebtn = document.getElementById('accept-cookies');
 
 window.addEventListener('DOMContentLoaded', function () {
     const savedInfo = localStorage.getItem('info');
     const savedNote = sessionStorage.getItem('note');
+    const consentCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('consent='));
 
     if (savedInfo) {
         const { name, email } = JSON.parse(savedInfo);
@@ -19,6 +22,10 @@ window.addEventListener('DOMContentLoaded', function () {
     if (savedNote) {
         note.value = savedNote;
     }
+    if (consentCookie) {
+        cookieBanner.style.display = 'none';
+    }
+
 })
 
 personalInfo.addEventListener('submit', function (e) {
@@ -35,4 +42,15 @@ noteForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
     sessionStorage.setItem('note', note.value)
+})
+
+cookieBanner.addEventListener('submit', function (e) {
+    e.preventDefault();
+ 
+    const date = new Date();                    
+    date.setTime(date.getTime() + 7 * 24 * 60 * 60 * 1000);     
+    const expires = date.toUTCString(); 
+    const consent = true;
+    
+    document.cookie = `consent=${consent}; expires=${expires};`;
 })
