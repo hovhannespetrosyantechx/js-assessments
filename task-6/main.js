@@ -8,10 +8,18 @@ const note = document.getElementById('temp-note');
 const cookieBanner = document.getElementById('cookie-banner');
 const cookiebtn = document.getElementById('accept-cookies');
 
+const clearAllBtn = document.getElementById('clear-all');
+const date = new Date();
+
+const consentCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('consent='));
+
+function getConsentCookie() {
+  return document.cookie.split('; ').find(c => c.startsWith('consent='));
+}
+
 window.addEventListener('DOMContentLoaded', function () {
     const savedInfo = localStorage.getItem('info');
     const savedNote = sessionStorage.getItem('note');
-    const consentCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('consent='));
 
     if (savedInfo) {
         const { name, email } = JSON.parse(savedInfo);
@@ -22,7 +30,7 @@ window.addEventListener('DOMContentLoaded', function () {
     if (savedNote) {
         note.value = savedNote;
     }
-    if (consentCookie) {
+    if (getConsentCookie()) {
         cookieBanner.style.display = 'none';
     }
 
@@ -46,11 +54,22 @@ noteForm.addEventListener('submit', function (e) {
 
 cookieBanner.addEventListener('submit', function (e) {
     e.preventDefault();
- 
-    const date = new Date();                    
-    date.setTime(date.getTime() + 7 * 24 * 60 * 60 * 1000);     
-    const expires = date.toUTCString(); 
+
+    date.setTime(date.getTime() + 7 * 24 * 60 * 60 * 1000);
+    const expires = date.toUTCString();
     const consent = true;
+
+    document.cookie = `consent=${consent}; expires=${expires}; path=/`;
+    cookieBanner.style.display = 'none';
+})
+
+clearAllBtn.addEventListener('click', function () {
+    localStorage.clear();
+    sessionStorage.clear();
+
+    if (getConsentCookie()) {
+        document.cookie = 'consent=true; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+    }
+    console.log('All storage cleared!');
     
-    document.cookie = `consent=${consent}; expires=${expires};`;
 })
