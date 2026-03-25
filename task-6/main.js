@@ -14,6 +14,9 @@ const date = new Date();
 const getJokebtn = document.getElementById('get-joke');
 const jokeArea = document.getElementById('joke-area');
 
+const startCountdown = document.getElementById('start-countdown');
+const countdownArea = document.getElementById('show-countdown');
+let countdown = null;
 
 function getConsentCookie() {
     return document.cookie.split('; ').find(c => c.startsWith('consent='));
@@ -92,5 +95,20 @@ getJokebtn.addEventListener('click', function () {
     getJoke();
 })
 
+startCountdown.addEventListener('click', function () {
+    if (countdown) clearInterval(countdown);
+    let count = 5;
+    countdownArea.textContent = count;
+    countdown = setInterval(() => {
+        count--;
+        if (count > 0) {
+            countdownArea.textContent = count;
+        } else {
+            countdownArea.textContent = 'GO!';
+            clearInterval(countdown);
+            countdown = null; 
+        }
+    }, 1000)
+})
 
 
