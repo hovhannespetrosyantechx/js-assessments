@@ -11,10 +11,12 @@ const cookiebtn = document.getElementById('accept-cookies');
 const clearAllBtn = document.getElementById('clear-all');
 const date = new Date();
 
-const consentCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('consent='));
+const getJokebtn = document.getElementById('get-joke');
+const jokeArea = document.getElementById('joke-area');
+
 
 function getConsentCookie() {
-  return document.cookie.split('; ').find(c => c.startsWith('consent='));
+    return document.cookie.split('; ').find(c => c.startsWith('consent='));
 }
 
 window.addEventListener('DOMContentLoaded', function () {
@@ -71,5 +73,24 @@ clearAllBtn.addEventListener('click', function () {
         document.cookie = 'consent=true; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
     }
     console.log('All storage cleared!');
-    
+
 })
+
+getJokebtn.addEventListener('click', function () {
+    jokeArea.textContent = 'Loading...'
+    async function getJoke() {
+        try {
+            const response = await fetch('https://icanhazdadjoke.com/slack');
+            const data = await response.json();
+
+            jokeArea.textContent = data.attachments[0].text;
+        }
+        catch {
+            jokeArea.textContent = 'Failed to fetch joke.';
+        }
+    }
+    getJoke();
+})
+
+
+
