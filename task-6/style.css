@@ -1,0 +1,58 @@
+:root {
+  --color-primary: #333333;
+  --color-border: #cccccc;
+  --color-shadow: #00000015;
+  --color-hover: #f0f0f0;
+  --bg-main: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  color: var(--color-primary);
+}
+
+section {
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--color-shadow);
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px 5px;
+  background-color: var(--bg-main);
+  border: 1px solid var(--color-border);
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--color-hover);
+}
+
+input {
+  padding: 8px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  margin: 10px 5px;
+}
+
+textarea {
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  margin: 10px 5px;
+  font-size: 14px;
+  resize: vertical;
+  min-height: 100px;
+}
