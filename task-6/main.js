@@ -23,6 +23,19 @@ const stopTicking = document.getElementById('stop-ticking');
 const tickArea = document.getElementById('tick-area');
 let tick = null;
 
+const nameError = document.getElementById('name-error');
+const emailError = document.getElementById('email-error');
+const noteError = document.getElementById('note-error');
+
+function isEmpty(input) {
+    return input === '';
+}
+function hasNum(input) {
+    return /\d/.test(input);
+}
+function isEmail(input) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input)
+}
 
 function getConsentCookie() {
     return document.cookie.split('; ').find(c => c.startsWith('consent='));
@@ -36,7 +49,7 @@ window.addEventListener('DOMContentLoaded', function () {
         const { name, email } = JSON.parse(savedInfo);
         nameBtn.value = name;
         emailBtn.value = email;
-        console.log(nameBtn.value, emailBtn.value)
+        console.log(nameBtn.value, emailBtn.value);
     }
     if (savedNote) {
         note.value = savedNote;
@@ -49,16 +62,52 @@ window.addEventListener('DOMContentLoaded', function () {
 
 personalInfo.addEventListener('submit', function (e) {
     e.preventDefault();
+    const nameVal = nameBtn.value.trim()
+    const emailVal = emailBtn.value.trim()
+
+    if (isEmpty(nameVal)) {
+        nameError.textContent = 'input should not be empty';
+        nameError.style.color = 'var(--error)';
+    }
+    else if (hasNum(nameVal)) {
+        nameError.textContent = 'input should not contain numbers';
+        nameError.style.color = 'var(--error)';
+    }
+    else {
+        nameError.textContent = '';
+    }
+
+    if (isEmpty(emailVal)) {
+        emailError.textContent = 'input should not be empty';
+        emailError.style.color = 'var(--error)';
+    }
+    else if (!isEmail(emailVal)) {
+        emailError.textContent = 'enter valid email';
+        emailError.style.color = 'var(--error)';
+    }
+    else {
+        emailError.textContent = '';
+    }
 
     const formData = {
-        name: nameBtn.value,
-        email: emailBtn.value
+        name: nameVal,
+        email: emailVal,
     }
     localStorage.setItem('info', JSON.stringify(formData))
 })
 
 noteForm.addEventListener('submit', function (e) {
     e.preventDefault();
+
+    const noteVal = note.value.trim()
+
+    if (isEmpty(noteVal)) {
+        noteError.textContent = 'input should not be empty';
+        noteError.style.color = 'var(--error)';
+    }
+    else {
+        noteError.textContent = '';
+    }
 
     sessionStorage.setItem('note', note.value)
 })
