@@ -18,6 +18,12 @@ const startCountdown = document.getElementById('start-countdown');
 const countdownArea = document.getElementById('show-countdown');
 let countdown = null;
 
+const startTicking = document.getElementById('start-ticking');
+const stopTicking = document.getElementById('stop-ticking');
+const tickArea = document.getElementById('tick-area');
+let tick = null;
+
+
 function getConsentCookie() {
     return document.cookie.split('; ').find(c => c.startsWith('consent='));
 }
@@ -106,9 +112,23 @@ startCountdown.addEventListener('click', function () {
         } else {
             countdownArea.textContent = 'GO!';
             clearInterval(countdown);
-            countdown = null; 
+            countdown = null;
         }
     }, 1000)
 })
 
+startTicking.addEventListener('click', function () {
+    if (!tick) {
+        tick = setInterval(() => {
+            tickArea.textContent += ' Tick';
+        }, 1000)
+    }
+
+})
+
+stopTicking.addEventListener('click', function () {
+    clearInterval(tick);
+    tickArea.textContent = '';
+    tick = null;
+})
 
