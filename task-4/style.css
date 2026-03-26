@@ -1,0 +1,199 @@
+:root {
+    --border-color: rgb(200, 210, 220);
+    --border-shadow: rgba(0, 0, 0, 0.1);
+    --dark-blue: rgb(46, 105, 255);
+    --dark-red: rgb(242, 58, 60);
+    --green-color: rgb(24, 189, 91);
+    --light-blue: rgb(241, 245, 255);
+    --light-red: rgb(255, 237, 237);
+    --main-background: #f2f2f2;
+    --main-text: rgb(44, 51, 69);
+    --secondary-background: white;
+    --secondary-text: rgb(87, 100, 126);
+    --table-color: rgb(195, 202, 216);
+}
+body {
+    background-color: var(--main-background);
+    color: var(--main-text);
+    display: flex;
+    font-family: "Inter", sans-serif;
+    justify-content: center;
+}
+main {
+    background-color: var(--secondary-background);
+    box-shadow: 0 4px 10px var(--border-shadow);
+    display: flex;
+    justify-content: center;
+    width: 800px;
+}
+form {
+    margin: auto;
+    width: 100%;
+}
+.title-section {
+    border-bottom: 1px solid var(--secondary-text);
+    padding: 0 40px 40px 40px;
+}
+.title-section h1 {
+    margin: 0;
+}
+.form-contents {
+    margin: 0 auto;
+    width: 90%;
+}
+section {
+    margin-top: 40px;
+}
+h2 {
+    font-size: 16px;
+}
+hr {
+    margin-top: 40px;
+}
+.required-sign {
+    color: var(--dark-red);
+}
+
+.input-block {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.input-item {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    width: 100%;
+}
+.input-item input {
+    border: 2px solid var(--table-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+    height: 30px;
+}
+.input-item label {
+    color: var(--secondary-text);
+    font-size: 10px;
+    margin: 6px 0 10px 2px;
+}
+.input-item select {
+    background-color: var(--secondary-background);
+    border: 1px solid var(--table-color);
+    border-radius: 4px;
+    color: var(--secondary-text);
+    height: 30px;
+}
+.input-item textarea {
+    border: 1px solid var(--table-color);
+    border-radius: 4px;
+    height: 260px;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+#other-section{
+    display: none;
+}
+.half {
+    width: 50%;
+}
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-item {
+    align-items: center;
+    display: flex;
+}
+.checkbox-item input {
+    border: 1px solid var(--table-color);
+    height: 20px;
+    margin: 5px;
+    width: 20px;
+}
+
+.reference-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 10px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.reference-table th {
+    background-color: var(--light-blue);
+    border: 1px solid var(--table-color);
+    padding: 10px;
+    text-align: center;
+}
+.reference-table td {
+    border: 1px solid var(--border-color);
+    height: 30px;
+    padding: 0;
+    text-align: center;
+}
+#empty {
+    background-color: var(--secondary-background);
+    border: none;
+}
+
+.reference-table input {
+    border: none;
+    box-sizing: border-box;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+#left-top-1 {
+    border-radius: 4px 0 0 0;
+}
+#left-top-2 {
+    border-radius: 4px 0 0 0;
+}
+#right-top {
+    border-radius: 0 4px 0 0;
+}
+
+#left-bottom {
+    border-radius: 0 0 0 4px;
+}
+#right-bottom {
+    border-radius: 0 0 4px 0;
+}
+
+.submit-btn {
+    border-top: 1px solid var(--secondary-text);
+}
+.submit-btn button {
+    background-color: var(--green-color);
+    border: none;
+    border-radius: 4px;
+    color: var(--secondary-background);
+    font-size: 16px;
+    height: 50px;
+    margin: 30px 0 60px 50px;
+    width: 200px;
+}
+.error{
+    color: var(--secondary-background);
+    background-color: var(--dark-red);
+    border-radius: 4px;
+}
+.section-error {
+    background-color: var(--light-red);
+    border-radius: 6px;
+}
+
+#success-screen {
+    display: none;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#success-screen img {
+    max-width: 300px;
+}
